@@ -5,6 +5,8 @@ import requests
 host = ""
 
 def aggregate():
+    # i like using defaultdict here because it automatically initializes each new key with a default value
+    # note: you do have to specify a type for the values
     data = defaultdict(int)
     logs = []
 
@@ -22,7 +24,7 @@ def aggregate():
         line_parts = line.strip().split(' ')
         if len(line_parts) > 2:
             log_level = line_parts[2]  # Assuming the log level is always at the same position
-            data[log_level] += 1
+            data[log_level] += 1 # using defaultdict allows us to increment values of undefined keys
 
     return data
 
