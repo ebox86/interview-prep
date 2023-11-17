@@ -28,7 +28,7 @@ def aggregate():
 
     return data
 
-def format_output(data):
+def format_counts(data):
     formatted_data = []
     for log_level, count in data.items():
         formatted_data.append(f"{log_level}: {count} entries")
@@ -36,4 +36,4 @@ def format_output(data):
 
 
 log_data = aggregate()
-print(format_output(log_data))
+print(format_counts(log_data))
